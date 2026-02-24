@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaCalendar, FaUser, FaClock, FaArrowRight, FaSearch, FaTags } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import blogs from "./blogdata";
 
@@ -65,19 +64,17 @@ const Blog = () => {
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="w-full pl-10 pr-4 py-3 bg-[#0A1929] border border-white/20 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-500"
+                className="w-full pl-4 pr-4 py-3 bg-[#0A1929] border border-white/20 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-500"
               />
             </div>
 
             {/* Category Filter */}
             <div className="flex items-center space-x-2">
-              <FaTags className="text-gray-400" />
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
@@ -109,34 +106,17 @@ const Blog = () => {
                     {blog.category}
                   </span>
                 </div>
-                {/* Category icon overlay */}
-                <div className="absolute top-4 right-4 text-white/30 text-4xl">
-                  {blog.category === "health" && "🏥"}
-                  {blog.category === "agriculture" && "🌱"}
-                  {blog.category === "education" && "📚"}
-                  {blog.category === "fintech" && "💰"}
-                  {blog.category === "hackathon" && "💻"}
-                  {blog.category === "community" && "👥"}
-                  {blog.category === "startup" && "🚀"}
-                </div>
               </div>
 
               {/* Blog Content */}
               <div className="p-6">
-                {/* Meta Info */}
+                {/* Meta Info - Text Only */}
                 <div className="flex items-center text-sm text-gray-400 mb-3 space-x-4">
-                  <div className="flex items-center">
-                    <FaUser className="mr-1" />
-                    {blog.author}
-                  </div>
-                  <div className="flex items-center">
-                    <FaCalendar className="mr-1" />
-                    {blog.date}
-                  </div>
-                  <div className="flex items-center">
-                    <FaClock className="mr-1" />
-                    {blog.readTime}
-                  </div>
+                  <span>{blog.author}</span>
+                  <span>•</span>
+                  <span>{blog.date}</span>
+                  <span>•</span>
+                  <span>{blog.readTime}</span>
                 </div>
 
                 {/* Title */}
@@ -165,7 +145,7 @@ const Blog = () => {
                   className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300 group/btn"
                 >
                   {expandedBlogIndex === index ? "Read Less" : "Read More"}
-                  <FaArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                  <span className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                 </button>
               </div>
             </article>
@@ -175,7 +155,6 @@ const Blog = () => {
         {/* No Results */}
         {filteredBlogs.length === 0 && (
           <div className="text-center py-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <div className="text-6xl text-gray-600 mb-4">📄</div>
             <h3 className="text-2xl font-bold text-gray-400 mb-2">No articles found</h3>
             <p className="text-gray-500">Try adjusting your search terms or category filter.</p>
           </div>
@@ -218,12 +197,17 @@ const Blog = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Redirects to LinkedIn */}
         <div className="text-center mt-12">
-          <Link to="/community" className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300">
-            Join the Puffadders Community
-            <FaArrowRight className="ml-2" />
-          </Link>
+          <a 
+            href="https://www.linkedin.com/company/puffadders" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300"
+          >
+            Join the Puffadders Community on LinkedIn
+            <span className="ml-2">→</span>
+          </a>
         </div>
       </div>
     </div>
