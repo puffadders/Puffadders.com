@@ -15,7 +15,7 @@ const storeData = [
     id: 2,
     name: "Build Solve Impact Hoodie",
     price: 49.99,
-    image: "public/hoodie.jpeg",
+    image: "hoodie.jpeg",
     category: "apparel",
     description: "Cozy hoodie featuring our motto 'Build. Solve. Impact.' Perfect for late-night coding sessions.",
     rating: 4.9,
