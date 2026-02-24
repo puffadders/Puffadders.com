@@ -8,11 +8,11 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/About", label: "About Us" },
+    { path: "/about", label: "About Us" },
     { path: "/blog", label: "Blog" },
     { path: "/joinus", label: "Join Us" },
     { path: "/store", label: "Store" },
-    { path: "/donate", label: "Donate" },
+    { path: "/partner", label: "Partner" },
   ];
 
   const isActive = (path) => location.pathname === path;
