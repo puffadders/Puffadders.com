@@ -24,14 +24,14 @@ const Navbar = () => {
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary-500 to-secondary-400 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 overflow-hidden">
             <img
-              src="/puffadder.png"
+              src="/puffadder.jpeg"
               alt="Puff Adder"
               className="w-full h-full object-cover"
             />
           </div>
 
           <span className="text-xl font-bold gradient-text hidden sm:block">
-            Puffadders
+            Puffadder
           </span>
         </Link>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaTelegram, FaDiscord, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaDiscord, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,6 @@ const Footer = () => {
       url: "https://github.com/puffadders",
       label: "GitHub",
     },
-    { icon: <FaTelegram />, url: "https://t.me/puffadders", label: "Telegram" },
     {
       icon: <FaDiscord />,
       url: "https://discord.gg/SdnKjuN2Ny",
@@ -52,7 +51,7 @@ const Footer = () => {
         {/* Additional Links */}
         <div className="mt-6 pt-6 border-t border-gray-700/50 text-center">
           <p className="text-gray-500 text-xs">
-            All rights reserved. Building the future, one commit at a time.
+            All rights reserved. Build . Solve . impact
           </p>
         </div>
       </div>
