@@ -204,17 +204,16 @@ const Store = () => {
         {/* Store Info */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
-            <div className="text-3xl mb-2 text-white">🚚</div>
+            
             <h3 className="text-white font-bold mb-1">Free Shipping</h3>
             <p className="text-sm text-gray-400">On orders over $50</p>
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
-            <div className="text-3xl mb-2 text-white">🛡️</div>
+        
             <h3 className="text-white font-bold mb-1">Secure Checkout</h3>
             <p className="text-sm text-gray-400">100% secure payments</p>
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
-            <div className="text-3xl mb-2 text-white">↩️</div>
             <h3 className="text-white font-bold mb-1">Easy Returns</h3>
             <p className="text-sm text-gray-400">30-day return policy</p>
           </div>
