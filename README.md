@@ -1,30 +1,26 @@
-# 🐍 Welcome to the Puffadders Community!
+#  Puffadders
 
-Join a vibrant community of **developers**, **security experts**, and **data scientists** working together to create innovative **open source solutions**.
+**Build. Solve. Impact.**
 
-## 🚀 Join Us
+Puffadders is a university-focused innovation community dedicated to empowering students to build real-world solutions through hackathons, technology, and collaboration. We bring together developers, designers, and innovators from universities across Kenya to solve challenges that matter.
 
-- [Join Our Community](https://github.com/puffadders)
+##  Our Mission
 
-## 💡 What We Do
+To discover talent, support innovation, and build the next generation of problem-solvers in:
 
-### 🛡️ Cybersecurity
+| Sector | Focus Areas |
+|--------|-------------|
+| 🏥**Health** | Telemedicine, health informatics, patient data, mobile health |
+|  **Agriculture** | Smart farming, crop management, supply chain, weather tech |
+|  **Education** | E-learning, digital classrooms, STEM education, accessibility |
+| **Fintech** | Mobile payments, digital banking, financial inclusion, blockchain |
 
-Protecting digital assets with cutting-edge security measures and ethical hacking practices.
+## What We Offer
 
-### 📊 Data Science
+Through our hackathons and programs, students gain the opportunity to:
 
-Transforming raw data into actionable insights using advanced analytics and machine learning.
+- **Build real solutions** from the ground up
+- **Work with industry mentors** who provide guidance and expertise
+- **Access career opportunities** with leading companies
+- **Launch startups** that create lasting impact
 
-### 💻 Software Development
-
-Building robust, scalable applications with modern technologies and best practices.
-
-## 🌍 Ready to Make an Impact?
-
-Join thousands of developers who are already contributing to open source projects and shaping the future of technology.
-
-- 👉 [Start Your Journey](https://github.com/puffadders)
-
-> _Together, we code. Together, we secure. Together, we innovate._  
-> — **Puffadders Community**
