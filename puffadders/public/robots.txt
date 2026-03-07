@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://puffadders.com/sitemap.xml
