@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../ThemeContext";
 
 // Reusable Section Header Component
-const SectionHeader = ({ title, subtitle }) => (
+const SectionHeader = ({ title, subtitle, darkMode }) => (
   <div className="text-center mb-16">
-    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h2>
-    {subtitle && <p className="text-xl text-gray-300 max-w-3xl mx-auto">{subtitle}</p>}
+    <h2 className={`text-4xl md:text-5xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4`}>{title}</h2>
+    {subtitle && <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>{subtitle}</p>}
   </div>
 );
 
 // Reusable Program Card Component
-const ProgramCard = ({ title, description, image, linkText, linkTo }) => (
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-300 group">
+const ProgramCard = ({ title, description, image, linkText, linkTo, darkMode }) => (
+  <div className={`${darkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white border-gray-200 hover:shadow-lg'} backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 group`}>
     <div className="aspect-video overflow-hidden">
       <img
         src={image}
@@ -20,11 +21,11 @@ const ProgramCard = ({ title, description, image, linkText, linkTo }) => (
       />
     </div>
     <div className="p-8">
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-300 mb-6 leading-relaxed">{description}</p>
+      <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-3`}>{title}</h3>
+      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 leading-relaxed`}>{description}</p>
       <Link
         to={linkTo}
-        className="inline-flex items-center text-white font-medium group/link"
+        className={`inline-flex items-center ${darkMode ? 'text-white' : 'text-[#0A1929]'} font-medium group/link`}
       >
         <span>{linkText}</span>
         <span className="ml-2 group-hover/link:translate-x-1 transition-transform duration-300">→</span>
@@ -34,6 +35,7 @@ const ProgramCard = ({ title, description, image, linkText, linkTo }) => (
 );
 
 const Home = () => {
+  const { darkMode } = useTheme();
   // Data for programs (similar to Eldohub's structure)
   const programs = [
     {
@@ -71,7 +73,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-[#0A1929] text-white">
+    <div className={`${darkMode ? 'bg-[#0A1929] text-white' : 'bg-white text-[#0A1929]'} transition-colors duration-300`}>
       {/* Hero Section - Clean and Bold */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20">
         <div className="absolute inset-0 z-0">
@@ -80,75 +82,77 @@ const Home = () => {
             alt=""
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1929] via-[#0A1929]/95 to-[#0A1929]"></div>
+          <div className={`absolute inset-0 ${darkMode ? 'bg-gradient-to-b from-[#0A1929] via-[#0A1929]/95 to-[#0A1929]' : 'bg-gradient-to-b from-white via-white/95 to-white'}`}></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className={`text-5xl md:text-7xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>
             Build. Solve. Impact.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-12 max-w-2xl mx-auto`}>
             A university-focused innovation community empowering students to build real-world solutions through hackathons, technology, and collaboration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/joinus" className="bg-white text-[#0A1929] px-10 py-4 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">
+            <Link to="/joinus" className={`${darkMode ? 'bg-white text-[#0A1929] hover:bg-gray-200' : 'bg-[#0A1929] text-white hover:bg-[#0d2240]'} px-10 py-4 rounded-full font-semibold transition-all duration-300`}>
               Join the Community
             </Link>
-            <Link to="/about" className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
+            <Link to="/about" className={`border-2 ${darkMode ? 'border-white/30 text-white hover:bg-white/10' : 'border-[#0A1929]/30 text-[#0A1929] hover:bg-[#0A1929]/5'} px-10 py-4 rounded-full font-semibold transition-all duration-300`}>
               Learn More
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar - Simple and Impactful (like Eldohub's partner logos) */}
-      <section className="py-12 border-y border-white/10">
+      {/* Stats Bar - Simple and Impactful */}
+      <section className={`py-12 border-y ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-4">
-            <span className="text-2xl font-bold text-white">10+</span>
-            <span className="text-gray-400">Universities</span>
-            <span className="text-2xl font-bold text-white">500+</span>
-            <span className="text-gray-400">Innovators</span>
-            <span className="text-2xl font-bold text-white">50+</span>
-            <span className="text-gray-400">Solutions</span>
-            <span className="text-2xl font-bold text-white">20+</span>
-            <span className="text-gray-400">Startups</span>
+            <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>10+</span>
+            <span className={darkMode ? 'text-gray-400' : 'text-gray-500'}>Universities</span>
+            <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>500+</span>
+            <span className={darkMode ? 'text-gray-400' : 'text-gray-500'}>Innovators</span>
+            <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>50+</span>
+            <span className={darkMode ? 'text-gray-400' : 'text-gray-500'}>Solutions</span>
+            <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>20+</span>
+            <span className={darkMode ? 'text-gray-400' : 'text-gray-500'}>Startups</span>
           </div>
         </div>
       </section>
 
-      {/* Mission Section - Clear and Direct (like Eldohub's intro) */}
+      {/* Mission Section */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Mission</h2>
-          <p className="text-2xl text-gray-300 leading-relaxed">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>Our Mission</h2>
+          <p className={`text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
             To discover talent, support innovation, and build the next generation of problem-solvers tackling real challenges in{" "}
-            <span className="text-white font-semibold">Health, Agriculture, Education, and Fintech</span> across Kenya.
+            <span className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-semibold`}>Health, Agriculture, Education, and Fintech</span> across Kenya.
           </p>
         </div>
       </section>
 
-      {/* Programs Grid - Core Offering (like Eldohub's SasaKazi, Academy, etc.) */}
-      <section className="py-24 px-6 bg-white/5">
+      {/* Programs Grid */}
+      <section className={`py-24 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             title="Our Programs"
             subtitle="We create opportunities for students to learn, build, and launch."
+            darkMode={darkMode}
           />
           <div className="grid md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <ProgramCard key={index} {...program} />
+              <ProgramCard key={index} {...program} darkMode={darkMode} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sectors Focus - Text-First Approach (like Eldohub's Digital Transformation section) */}
+      {/* Sectors Focus */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <SectionHeader
             title="Where We Focus"
             subtitle="We bring together developers, designers, and innovators to solve challenges in key sectors."
+            darkMode={darkMode}
           />
           <div className="grid md:grid-cols-2 gap-12">
             {[
@@ -157,27 +161,27 @@ const Home = () => {
               { title: "Education", desc: "Developing e-learning platforms, digital classrooms, and tools that make quality education accessible." },
               { title: "Fintech", desc: "Innovating financial solutions for payments, savings, lending, and financial inclusion." },
             ].map((sector, i) => (
-              <div key={i} className="border-l-4 border-white/30 pl-6">
-                <h3 className="text-2xl font-bold text-white mb-3">{sector.title}</h3>
-                <p className="text-gray-300 text-lg leading-relaxed">{sector.desc}</p>
+              <div key={i} className={`border-l-4 ${darkMode ? 'border-white/30' : 'border-[#0A1929]/30'} pl-6`}>
+                <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-3`}>{sector.title}</h3>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-lg leading-relaxed`}>{sector.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action - Bold and Centered (like Eldohub's bottom CTA) */}
-      <section className="py-32 px-6 border-t border-white/10">
+      {/* Call to Action */}
+      <section className={`py-32 px-6 border-t ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">Ready to Build the Future?</h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>Ready to Build the Future?</h2>
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-10 max-w-2xl mx-auto`}>
             Join Kenya's fastest-growing student innovation community and start your journey today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/joinus" className="bg-white text-[#0A1929] px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transition-all duration-300">
+            <Link to="/joinus" className={`${darkMode ? 'bg-white text-[#0A1929] hover:bg-gray-200' : 'bg-[#0A1929] text-white hover:bg-[#0d2240]'} px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300`}>
               Join Puffadders
             </Link>
-            <Link to="/partner" className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+            <Link to="/partner" className={`border-2 ${darkMode ? 'border-white/30 text-white hover:bg-white/10' : 'border-[#0A1929]/30 text-[#0A1929] hover:bg-[#0A1929]/5'} px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300`}>
               Partner With Us
             </Link>
           </div>

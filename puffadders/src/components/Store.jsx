@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaArrowRight, FaFilter, FaSearch, FaStar, FaTag } from "react-icons/fa";
 import storeData from "./storeData";
+import { useTheme } from "../ThemeContext";
 
 const Store = () => {
+  const { darkMode } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("featured");
