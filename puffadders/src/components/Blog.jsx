@@ -12,7 +12,6 @@ const Blog = () => {
   
   const blogsPerPage = 6;
   
-  // Filter blogs based on search and category
   const filteredBlogs = blogs.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
@@ -43,14 +42,12 @@ const Blog = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} px-6 py-20 transition-colors duration-300`}>
-      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute top-1/4 left-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
         <div className={`absolute bottom-1/4 right-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-16">
           <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-6 animate-fade-in-up`}>
             Puffadders Insights
@@ -61,10 +58,8 @@ const Blog = () => {
           </p>
         </div>
 
-        {/* Search and Filter */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-6 mb-12 border animate-fade-in-up`} style={{ animationDelay: '0.4s' }}>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search */}
             <div className="relative flex-1 max-w-md">
               <input
                 type="text"
@@ -75,7 +70,6 @@ const Blog = () => {
               />
             </div>
 
-            {/* Category Filter */}
             <div className="flex items-center space-x-2">
               <select
                 value={selectedCategory}
@@ -92,7 +86,6 @@ const Blog = () => {
           </div>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {currentBlogs.map((blog, index) => (
             <article
@@ -100,7 +93,6 @@ const Blog = () => {
               className={`${darkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white border-gray-200 hover:shadow-lg'} backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 animate-fade-in-up group border`}
               style={{ animationDelay: `${0.6 + index * 0.1}s` }}
             >
-              {/* Blog Image */}
               <div className="h-48 relative overflow-hidden">
                 {blog.image ? (
                   <img 
@@ -108,7 +100,6 @@ const Blog = () => {
                     alt={blog.imageAlt || blog.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
-                      // Fallback if image fails to load
                       e.target.onerror = null;
                       e.target.style.display = 'none';
                       e.target.parentNode.classList.add('bg-gradient-to-br', 'from-white/20', 'to-white/5');
@@ -125,28 +116,23 @@ const Blog = () => {
                 </div>
               </div>
 
-              {/* Blog Content */}
               <div className="p-6">
-                {/* Meta Info - Text Only */}
                 <div className={`flex items-center text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-3 space-x-4`}>
                   <span>{blog.author}</span>
-                  <span>•</span>
+                  <span>|</span>
                   <span>{blog.date}</span>
-                  <span>•</span>
+                  <span>|</span>
                   <span>{blog.readTime}</span>
                 </div>
 
-                {/* Title */}
                 <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-3 transition-colors duration-300`}>
                   {blog.title}
                 </h3>
 
-                {/* Excerpt */}
                 <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4 leading-relaxed`}>
                   {blog.excerpt}
                 </p>
 
-                {/* Expanded Content */}
                 {expandedBlogIndex === index && (
                   <div className="mb-4">
                     <div className={`h-px bg-gradient-to-r from-transparent ${darkMode ? 'via-white' : 'via-gray-300'} to-transparent mb-4`}></div>
@@ -156,20 +142,18 @@ const Blog = () => {
                   </div>
                 )}
 
-                {/* Read More Button */}
                 <button
                   onClick={() => handleExpand(index)}
                   className={`inline-flex items-center ${darkMode ? 'text-white hover:text-gray-300' : 'text-[#0A1929] hover:text-gray-600'} transition-colors duration-300 group/btn`}
                 >
                   {expandedBlogIndex === index ? "Read Less" : "Read More"}
-                  <span className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
+                  <span className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1">&gt;</span>
                 </button>
               </div>
             </article>
           ))}
         </div>
 
-        {/* No Results */}
         {filteredBlogs.length === 0 && (
           <div className={`text-center py-12 ${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl border`}>
             <h3 className={`text-2xl font-bold ${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-2`}>No articles found</h3>
@@ -177,7 +161,6 @@ const Blog = () => {
           </div>
         )}
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center space-x-2">
             {Array.from({ length: totalPages }, (_, index) => (
@@ -196,7 +179,6 @@ const Blog = () => {
           </div>
         )}
 
-        {/* Newsletter Signup */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-8 mt-16 text-center border`}>
           <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4`}>Stay Updated</h2>
           <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 max-w-2xl mx-auto`}>
@@ -214,7 +196,6 @@ const Blog = () => {
           </div>
         </div>
 
-        {/* Call to Action - Redirects to LinkedIn */}
         <div className="text-center mt-12">
           <a 
             href="https://www.linkedin.com/company/puffadders" 
@@ -223,7 +204,7 @@ const Blog = () => {
             className={`inline-flex items-center ${darkMode ? 'text-white hover:text-gray-300' : 'text-[#0A1929] hover:text-gray-600'} transition-colors duration-300`}
           >
             Join the Puffadders Community on LinkedIn
-            <span className="ml-2">→</span>
+            <span className="ml-2">&gt;</span>
           </a>
         </div>
       </div>

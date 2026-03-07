@@ -35,7 +35,6 @@ const Loader = () => {
       <style>{spinAnimation}</style>
       
       <div className={`fixed inset-0 flex flex-col items-center justify-center z-50 ${darkMode ? 'bg-[#0A1929]' : 'bg-white'}`}>
-        {/* Main Text */}
         <div className="relative mb-8">
           <h1 className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>
             PUFFADDERS
@@ -46,7 +45,6 @@ const Loader = () => {
           ></div>
         </div>
 
-        {/* Spinner */}
         <div className="relative mb-6">
           <div className={`w-16 h-16 border-2 rounded-full ${darkMode ? 'border-white/20' : 'border-gray-300'}`}></div>
           <div 
@@ -55,12 +53,10 @@ const Loader = () => {
           ></div>
         </div>
 
-        {/* Progress Text */}
         <div className={`text-sm tracking-widest mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
           LOADING {progress}%
         </div>
 
-        {/* Progress Bar */}
         <div className={`w-48 h-0.5 rounded-full overflow-hidden ${darkMode ? 'bg-white/10' : 'bg-gray-200'}`}>
           <div 
             className={`h-full rounded-full transition-all duration-300 ${darkMode ? 'bg-white' : 'bg-[#0A1929]'}`}
@@ -68,7 +64,6 @@ const Loader = () => {
           />
         </div>
 
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div 
             className="absolute inset-0"

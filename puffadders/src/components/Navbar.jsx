@@ -22,7 +22,6 @@ const Navbar = () => {
   return (
     <nav className={`${darkMode ? 'bg-[#0A1929] border-white/10' : 'bg-white border-gray-200 shadow-sm'} border-b sticky top-0 z-50 px-6 py-4 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group">
           <div className={`h-12 w-12 rounded-full ${darkMode ? 'bg-white border-white/30' : 'bg-[#0A1929] border-gray-300'} flex items-center justify-center overflow-hidden border-2 shadow-lg`}>
             <img
@@ -40,7 +39,6 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-2">
           {navItems.map((item) => (
             <Link
@@ -59,7 +57,6 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className={`ml-2 p-2.5 rounded-lg transition-all duration-300 ${
@@ -73,7 +70,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-2">
           <button
             onClick={toggleTheme}
@@ -99,7 +95,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <div
         className={`md:hidden transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
@@ -131,5 +126,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

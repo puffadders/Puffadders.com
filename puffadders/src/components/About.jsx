@@ -24,7 +24,6 @@ const About = () => {
   const { darkMode } = useTheme();
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} transition-colors duration-300`}>
-      {/* Hero Section - Minimal */}
       <section className="relative pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className={`text-6xl md:text-7xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-6`}>
@@ -38,7 +37,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story - Narrative Section */}
       <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -69,7 +67,7 @@ const About = () => {
                   Every hackathon brings new ideas that have the potential to transform communities."
                 </blockquote>
                 <div className={`mt-6 ${darkMode ? 'text-white' : 'text-[#0A1929]'} font-medium`}>
-                  — The Puffadders Team
+                  - The Puffadders Team
                 </div>
               </div>
             </div>
@@ -77,7 +75,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline - Journey Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-16`}>Our Journey</h2>
@@ -98,7 +95,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values - Text Only */}
       <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-16`}>What Drives Us</h2>
@@ -118,7 +114,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Team */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-16`}>Our Team</h2>
@@ -144,7 +139,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Call to Action - Minimal */}
       <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className={`text-4xl md:text-5xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-6`}>

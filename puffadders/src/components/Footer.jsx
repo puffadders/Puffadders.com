@@ -28,7 +28,6 @@ const Footer = () => {
     <footer className={`${darkMode ? 'bg-[#0A1929] border-white/10' : 'bg-gray-50 border-gray-200'} border-t mt-auto transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Social Links */}
           <div className="flex items-center space-x-6">
             {socialLinks.map((social, index) => (
               <a
@@ -44,16 +43,14 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Copyright */}
           <div className={`flex items-center space-x-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}>
             <span>&copy; {currentYear} Puffadders Community.</span>
           </div>
         </div>
 
-        {/* Additional Links */}
         <div className={`mt-6 pt-6 border-t ${darkMode ? 'border-gray-700/50' : 'border-gray-200'} text-center`}>
           <p className={`${darkMode ? 'text-gray-500' : 'text-gray-400'} text-xs`}>
-            All rights reserved. Build . Solve . impact
+            All rights reserved. Build . Solve . Impact
           </p>
         </div>
       </div>

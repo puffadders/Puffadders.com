@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext";
 
-// Reusable Section Header Component
 const SectionHeader = ({ title, subtitle, darkMode }) => (
   <div className="text-center mb-16">
     <h2 className={`text-4xl md:text-5xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4`}>{title}</h2>
@@ -10,7 +9,6 @@ const SectionHeader = ({ title, subtitle, darkMode }) => (
   </div>
 );
 
-// Reusable Program Card Component
 const ProgramCard = ({ title, description, image, linkText, linkTo, darkMode }) => (
   <div className={`${darkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white border-gray-200 hover:shadow-lg'} backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 group`}>
     <div className="aspect-video overflow-hidden">
@@ -28,7 +26,7 @@ const ProgramCard = ({ title, description, image, linkText, linkTo, darkMode }) 
         className={`inline-flex items-center ${darkMode ? 'text-white' : 'text-[#0A1929]'} font-medium group/link`}
       >
         <span>{linkText}</span>
-        <span className="ml-2 group-hover/link:translate-x-1 transition-transform duration-300">→</span>
+        <span className="ml-2 group-hover/link:translate-x-1 transition-transform duration-300">&gt;</span>
       </Link>
     </div>
   </div>
@@ -36,7 +34,6 @@ const ProgramCard = ({ title, description, image, linkText, linkTo, darkMode }) 
 
 const Home = () => {
   const { darkMode } = useTheme();
-  // Data for programs (similar to Eldohub's structure)
   const programs = [
     {
       title: "Hackathons",
@@ -74,12 +71,11 @@ const Home = () => {
 
   return (
     <div className={`${darkMode ? 'bg-[#0A1929] text-white' : 'bg-white text-[#0A1929]'} transition-colors duration-300`}>
-      {/* Hero Section - Clean and Bold */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20">
         <div className="absolute inset-0 z-0">
           <img
             src="/logo/puffadders banner.jpeg"
-            alt=""
+            alt="Puffadders community banner"
             className="w-full h-full object-cover opacity-20"
           />
           <div className={`absolute inset-0 ${darkMode ? 'bg-gradient-to-b from-[#0A1929] via-[#0A1929]/95 to-[#0A1929]' : 'bg-gradient-to-b from-white via-white/95 to-white'}`}></div>
@@ -103,7 +99,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Bar - Simple and Impactful */}
       <section className={`py-12 border-y ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-4">
@@ -119,7 +114,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Mission Section */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>Our Mission</h2>
@@ -130,7 +124,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Programs Grid */}
       <section className={`py-24 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader
@@ -146,7 +139,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sectors Focus */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <SectionHeader
@@ -170,7 +162,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className={`py-32 px-6 border-t ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>Ready to Build the Future?</h2>
