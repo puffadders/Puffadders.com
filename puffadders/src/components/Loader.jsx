@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "../ThemeContext";
 
 const Loader = () => {
+  const { darkMode } = useTheme();
   const [progress, setProgress] = useState(0);
   
   useEffect(() => {
@@ -32,10 +34,10 @@ const Loader = () => {
     <>
       <style>{spinAnimation}</style>
       
-      <div className="fixed inset-0 bg-[#0A1929] flex flex-col items-center justify-center z-50">
+      <div className={`fixed inset-0 flex flex-col items-center justify-center z-50 ${darkMode ? 'bg-[#0A1929]' : 'bg-white'}`}>
         {/* Main Text */}
         <div className="relative mb-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-white">
+          <h1 className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'}`}>
             PUFFADDERS
           </h1>
           <div 
@@ -46,22 +48,22 @@ const Loader = () => {
 
         {/* Spinner */}
         <div className="relative mb-6">
-          <div className="w-16 h-16 border-2 border-white/20 rounded-full"></div>
+          <div className={`w-16 h-16 border-2 rounded-full ${darkMode ? 'border-white/20' : 'border-gray-300'}`}></div>
           <div 
-            className="absolute top-0 left-0 w-16 h-16 border-2 border-white rounded-full animate-spin-slow"
+            className={`absolute top-0 left-0 w-16 h-16 border-2 rounded-full animate-spin-slow ${darkMode ? 'border-white' : 'border-[#0A1929]'}`}
             style={{ borderTopColor: 'transparent' }}
           ></div>
         </div>
 
         {/* Progress Text */}
-        <div className="text-gray-400 text-sm tracking-widest mb-2">
+        <div className={`text-sm tracking-widest mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
           LOADING {progress}%
         </div>
 
         {/* Progress Bar */}
-        <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
+        <div className={`w-48 h-0.5 rounded-full overflow-hidden ${darkMode ? 'bg-white/10' : 'bg-gray-200'}`}>
           <div 
-            className="h-full bg-white rounded-full transition-all duration-300"
+            className={`h-full rounded-full transition-all duration-300 ${darkMode ? 'bg-white' : 'bg-[#0A1929]'}`}
             style={{ width: `${progress}%` }}
           />
         </div>

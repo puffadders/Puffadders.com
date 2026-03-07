@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import blogs from "./blogdata";
+import { useTheme } from "../ThemeContext";
 
 const Blog = () => {
+  const { darkMode } = useTheme();
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedBlogIndex, setExpandedBlogIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,27 +42,27 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A1929] px-6 py-20">
+    <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} px-6 py-20 transition-colors duration-300`}>
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+        <div className={`absolute top-1/4 left-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
+        <div className={`absolute bottom-1/4 right-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+          <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-6 animate-fade-in-up`}>
             Puffadders Insights
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed animate-fade-in-up`} style={{ animationDelay: '0.2s' }}>
             Stories, guides and updates from Kenya's fastest-growing student innovation community. 
             Discover how students are building solutions in Health, Agriculture, Education and Fintech.
           </p>
         </div>
 
         {/* Search and Filter */}
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-12 border border-white/10 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-6 mb-12 border animate-fade-in-up`} style={{ animationDelay: '0.4s' }}>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
@@ -69,7 +71,7 @@ const Blog = () => {
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="w-full pl-4 pr-4 py-3 bg-[#0A1929] border border-white/20 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-500"
+                className={`w-full pl-4 pr-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/20 text-white placeholder-gray-500' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
               />
             </div>
 
@@ -78,7 +80,7 @@ const Blog = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="px-4 py-3 bg-[#0A1929] border border-white/20 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white"
+                className={`px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/20 text-white' : 'bg-white border-gray-300 text-[#0A1929]'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
               >
                 {categories.map(category => (
                   <option key={category} value={category}>
@@ -95,7 +97,7 @@ const Blog = () => {
           {currentBlogs.map((blog, index) => (
             <article
               key={index}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 animate-fade-in-up group border border-white/10"
+              className={`${darkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white border-gray-200 hover:shadow-lg'} backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 animate-fade-in-up group border`}
               style={{ animationDelay: `${0.6 + index * 0.1}s` }}
             >
               {/* Blog Image */}
@@ -126,7 +128,7 @@ const Blog = () => {
               {/* Blog Content */}
               <div className="p-6">
                 {/* Meta Info - Text Only */}
-                <div className="flex items-center text-sm text-gray-400 mb-3 space-x-4">
+                <div className={`flex items-center text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-3 space-x-4`}>
                   <span>{blog.author}</span>
                   <span>•</span>
                   <span>{blog.date}</span>
@@ -135,20 +137,20 @@ const Blog = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">
+                <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-3 transition-colors duration-300`}>
                   {blog.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4 leading-relaxed`}>
                   {blog.excerpt}
                 </p>
 
                 {/* Expanded Content */}
                 {expandedBlogIndex === index && (
                   <div className="mb-4">
-                    <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent mb-4"></div>
-                    <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                    <div className={`h-px bg-gradient-to-r from-transparent ${darkMode ? 'via-white' : 'via-gray-300'} to-transparent mb-4`}></div>
+                    <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed whitespace-pre-line`}>
                       {blog.content}
                     </p>
                   </div>
@@ -157,7 +159,7 @@ const Blog = () => {
                 {/* Read More Button */}
                 <button
                   onClick={() => handleExpand(index)}
-                  className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300 group/btn"
+                  className={`inline-flex items-center ${darkMode ? 'text-white hover:text-gray-300' : 'text-[#0A1929] hover:text-gray-600'} transition-colors duration-300 group/btn`}
                 >
                   {expandedBlogIndex === index ? "Read Less" : "Read More"}
                   <span className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
@@ -169,8 +171,8 @@ const Blog = () => {
 
         {/* No Results */}
         {filteredBlogs.length === 0 && (
-          <div className="text-center py-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <h3 className="text-2xl font-bold text-gray-400 mb-2">No articles found</h3>
+          <div className={`text-center py-12 ${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl border`}>
+            <h3 className={`text-2xl font-bold ${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-2`}>No articles found</h3>
             <p className="text-gray-500">Try adjusting your search terms or category filter.</p>
           </div>
         )}
@@ -184,8 +186,8 @@ const Blog = () => {
                 onClick={() => setCurrentPage(index + 1)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   currentPage === index + 1
-                    ? "bg-white text-[#0A1929] shadow-lg"
-                    : "bg-white/5 text-gray-300 hover:bg-white/20 hover:text-white border border-white/10"
+                    ? darkMode ? "bg-white text-[#0A1929] shadow-lg" : "bg-[#0A1929] text-white shadow-lg"
+                    : darkMode ? "bg-white/5 text-gray-300 hover:bg-white/20 hover:text-white border border-white/10" : "bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200"
                 }`}
               >
                 {index + 1}
@@ -195,18 +197,18 @@ const Blog = () => {
         )}
 
         {/* Newsletter Signup */}
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mt-16 text-center border border-white/10">
-          <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+        <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-8 mt-16 text-center border`}>
+          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4`}>Stay Updated</h2>
+          <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 max-w-2xl mx-auto`}>
             Get the latest stories from student innovators, hackathon announcements, and opportunities delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-[#0A1929] border border-white/20 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-500"
+              className={`flex-1 px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/20 text-white placeholder-gray-500' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
             />
-            <button className="bg-white text-[#0A1929] font-bold px-6 py-3 rounded-lg hover:bg-gray-200 transition-all duration-300">
+            <button className={`${darkMode ? 'bg-white text-[#0A1929] hover:bg-gray-200' : 'bg-[#0A1929] text-white hover:bg-[#0d2240]'} font-bold px-6 py-3 rounded-lg transition-all duration-300`}>
               Subscribe
             </button>
           </div>
@@ -218,7 +220,7 @@ const Blog = () => {
             href="https://www.linkedin.com/company/puffadders" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300"
+            className={`inline-flex items-center ${darkMode ? 'text-white hover:text-gray-300' : 'text-[#0A1929] hover:text-gray-600'} transition-colors duration-300`}
           >
             Join the Puffadders Community on LinkedIn
             <span className="ml-2">→</span>
