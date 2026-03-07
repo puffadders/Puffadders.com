@@ -48,7 +48,7 @@ const supportWays = [
 const partnerDropdowns = [
   {
     title: "General Partnership",
-    content: "Puffadders partners with organizations, companies, and individuals who share our vision of empowering student innovation in Kenya. As a general partner, you gain access to our network of 500+ student innovators from 10+ universities. Partners receive brand visibility at our events, access to talent pipelines, and the opportunity to shape the next generation of tech leaders. We tailor partnerships to align with your goals — whether it's CSR, recruitment, brand awareness, or innovation scouting."
+    content: "Puffadders partners with organizations, companies, and individuals who share our vision of empowering student innovation in Kenya. As a general partner, you gain access to our network of 500+ student innovators from 10+ universities. Partners receive brand visibility at our events, access to talent pipelines, and the opportunity to shape the next generation of tech leaders. We tailor partnerships to align with your goals, whether it's CSR, recruitment, brand awareness, or innovation scouting."
   },
   {
     title: "Event Sponsorship",
@@ -105,14 +105,12 @@ const PartnerWithUs = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} px-6 py-20 transition-colors duration-300`}>
-      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute top-1/4 left-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
         <div className={`absolute bottom-1/4 right-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4 animate-fade-in-up`}>
             Partner With Puffadders
@@ -124,7 +122,6 @@ const PartnerWithUs = () => {
           </p>
         </div>
 
-        {/* Why Partner Section */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-8 mb-16 border animate-fade-in-up`} style={{ animationDelay: "0.5s" }}>
           <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-6 text-center`}>Why Partner With Us?</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -137,7 +134,7 @@ const PartnerWithUs = () => {
               { title: "Thought Leadership", desc: "Position your organization at the forefront of student innovation in Kenya." },
             ].map((item, i) => (
               <div key={i} className="flex items-start space-x-3">
-                <div className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} mt-1 text-lg`}>•</div>
+                <div className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} mt-1 text-lg`}>-</div>
                 <div>
                   <h3 className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-bold mb-1`}>{item.title}</h3>
                   <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{item.desc}</p>
@@ -147,7 +144,6 @@ const PartnerWithUs = () => {
           </div>
         </div>
 
-        {/* Ways to Support */}
         <div className="mb-16">
           <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-8 text-center animate-fade-in-up`} style={{ animationDelay: "0.6s" }}>
             Ways to Support
@@ -167,7 +163,6 @@ const PartnerWithUs = () => {
           </div>
         </div>
 
-        {/* Partnership Info Dropdowns */}
         <div className="mb-16">
           <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-8 text-center animate-fade-in-up`} style={{ animationDelay: "0.85s" }}>
             Learn More About Partnerships
@@ -222,7 +217,6 @@ const PartnerWithUs = () => {
           </div>
         </div>
 
-        {/* Partnership Inquiry Form */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-8 border animate-fade-in-up`} style={{ animationDelay: "0.9s" }}>
           <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-2 text-center`}>Let's Partner</h2>
           <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center mb-8 max-w-2xl mx-auto`}>
@@ -325,7 +319,6 @@ const PartnerWithUs = () => {
           </form>
         </div>
 
-        {/* Contact Info */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-xl p-5 border flex items-center`}>
             <FaEnvelope className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} mr-3 text-xl`} />
@@ -350,7 +343,6 @@ const PartnerWithUs = () => {
           </div>
         </div>
 
-        {/* Thank You Message */}
         <div className={`text-center mt-12 ${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-xl p-6 border`}>
           <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-sm max-w-2xl mx-auto`}>
             Every partnership helps us empower more student innovators to build solutions that transform communities. 

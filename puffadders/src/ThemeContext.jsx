@@ -7,7 +7,7 @@ export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("puffadders-theme");
-    return saved ? saved === "dark" : true; // default dark
+    return saved ? saved === "dark" : true;
   });
 
   useEffect(() => {

@@ -67,27 +67,16 @@ const JoinUs = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} transition-colors duration-300`}>
-      {/* Hero Section with Banner */}
       <section className={`relative py-24 px-6 border-b ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src="/logo/puffadders banner.jpeg" 
-            alt="" 
+            alt="Puffadders community" 
             className="w-full h-full object-cover opacity-10"
           />
         </div>
-        {/* <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Join Puffadders
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-            Become part of Kenya's fastest-growing student innovation community. 
-            Build real solutions, work with mentors, and launch your future.
-          </p>
-        </div> */}
       </section>
 
-      {/* Focus Areas - Text Only Cards */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
@@ -110,7 +99,6 @@ const JoinUs = () => {
                   {field.description}
                 </p>
                 
-                {/* Skills - Visible on hover */}
                 <div className={`space-y-2 transition-all duration-300 ${selectedField === field.id ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="h-px w-full bg-white/10 my-3"></div>
                   <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Key Areas</h4>
@@ -128,7 +116,6 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* How It Works - Clean Timeline */}
       <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
@@ -155,7 +142,6 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Benefits - Simple List */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
@@ -168,7 +154,7 @@ const JoinUs = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-3">
-                <span className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-bold`}>—</span>
+                <span className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-bold`}>-</span>
                 <span className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-sm`}>{benefit}</span>
               </div>
             ))}
@@ -176,7 +162,6 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Application Form - Clean */}
       <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'} border-t ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-3xl mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
@@ -290,13 +275,12 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Final CTA - Simple */}
       <section className="py-16 px-6 text-center">
         <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} text-sm max-w-2xl mx-auto`}>
           Already part of our community? Check out our latest hackathons and events on the blog.
         </p>
         <Link to="/blog" className={`inline-block mt-4 ${darkMode ? 'text-white hover:text-gray-300 border-white/30' : 'text-[#0A1929] hover:text-gray-600 border-[#0A1929]/30'} transition-colors duration-300 border-b pb-1`}>
-          View Upcoming Events →
+          View Upcoming Events
         </Link>
       </section>
     </div>

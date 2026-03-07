@@ -9,7 +9,6 @@ const Store = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("featured");
 
-  // Filter and sort products
   const filteredProducts = storeData
     .filter(product => {
       const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
@@ -21,21 +20,19 @@ const Store = () => {
       if (sortBy === "price-low") return a.price - b.price;
       if (sortBy === "price-high") return b.price - a.price;
       if (sortBy === "rating") return b.rating - a.rating;
-      return 0; // featured
+      return 0;
     });
 
   const categories = ["all", "apparel", "accessories", "stationery"];
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} px-6 py-20 transition-colors duration-300`}>
-      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute top-1/4 left-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
         <div className={`absolute bottom-1/4 right-1/4 w-72 h-72 ${darkMode ? 'bg-white/5' : 'bg-gray-100'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-4 animate-fade-in-up`}>
             Puffadders Store
@@ -46,10 +43,8 @@ const Store = () => {
           </p>
         </div>
 
-        {/* Filter Bar */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-xl p-5 mb-10 border animate-fade-in-up`} style={{ animationDelay: '0.3s' }}>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search */}
             <div className="relative flex-1 max-w-md">
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
               <input
@@ -61,7 +56,6 @@ const Store = () => {
               />
             </div>
 
-            {/* Filter Controls */}
             <div className="flex flex-wrap gap-3 items-center">
               <div className="flex items-center space-x-2">
                 <FaFilter className="text-gray-400 text-sm" />
@@ -93,7 +87,6 @@ const Store = () => {
           </div>
         </div>
 
-        {/* Products Grid */}
         {filteredProducts.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {filteredProducts.map((product, index) => (
@@ -102,7 +95,6 @@ const Store = () => {
                 className={`${darkMode ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white hover:shadow-lg border-gray-200'} backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 animate-fade-in-up group border`}
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
               >
-                {/* Product Image */}
                 <div className={`relative h-64 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-white/10 to-white/5' : 'bg-gray-100'}`}>
                   <img 
                     src={product.image} 
@@ -110,7 +102,6 @@ const Store = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   
-                  {/* Sale Badge */}
                   {product.onSale && (
                     <div className={`absolute top-4 left-4 ${darkMode ? 'bg-white text-[#0A1929]' : 'bg-[#0A1929] text-white'} text-xs font-bold px-3 py-1.5 rounded-full`}>
                       SALE
@@ -118,7 +109,6 @@ const Store = () => {
                   )}
                 </div>
 
-                {/* Product Info */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} transition-colors duration-300`}>
@@ -133,7 +123,6 @@ const Store = () => {
                     {product.description}
                   </p>
 
-                  {/* Rating */}
                   <div className="flex items-center mb-4">
                     <div className="flex items-center mr-2">
                       {[...Array(5)].map((_, i) => (
@@ -148,7 +137,6 @@ const Store = () => {
                     </span>
                   </div>
 
-                  {/* Price and Action */}
                   <div className="flex items-center justify-between">
                     <div>
                       {product.originalPrice ? (
@@ -177,15 +165,13 @@ const Store = () => {
             ))}
           </div>
         ) : (
-          /* No Results */
           <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-12 text-center border mb-16`}>
-            <div className="text-6xl text-gray-600 mb-4">∅</div>
+            <div className="text-6xl text-gray-600 mb-4">-</div>
             <h3 className={`text-2xl font-bold ${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-2`}>No swag found</h3>
             <p className="text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
           </div>
         )}
 
-        {/* Featured Collection */}
         <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-2xl p-8 border animate-fade-in-up`} style={{ animationDelay: '0.8s' }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -203,7 +189,6 @@ const Store = () => {
           </div>
         </div>
 
-        {/* Store Info */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div className={`${darkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} backdrop-blur-sm rounded-xl p-5 border text-center`}>
             <h3 className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-bold mb-1`}>Free Shipping</h3>
