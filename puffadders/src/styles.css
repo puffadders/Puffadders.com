@@ -11,7 +11,15 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700 text-gray-100 font-sans leading-relaxed min-h-screen overflow-x-hidden;
+    @apply font-sans leading-relaxed min-h-screen overflow-x-hidden transition-colors duration-300;
+  }
+
+  html.dark body {
+    @apply bg-[#0A1929] text-gray-100;
+  }
+
+  html.light body {
+    @apply bg-white text-[#0A1929];
   }
 }
 

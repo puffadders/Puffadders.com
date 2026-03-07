@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../ThemeContext";
 
 const fields = [
   {
@@ -40,6 +41,7 @@ const benefits = [
 ];
 
 const JoinUs = () => {
+  const { darkMode } = useTheme();
   const [selectedField, setSelectedField] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -64,9 +66,9 @@ const JoinUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A1929]">
+    <div className={`min-h-screen ${darkMode ? 'bg-[#0A1929]' : 'bg-white'} transition-colors duration-300`}>
       {/* Hero Section with Banner */}
-      <section className="relative py-24 px-6 border-b border-white/10">
+      <section className={`relative py-24 px-6 border-b ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src="/logo/puffadders banner.jpeg" 
@@ -88,10 +90,10 @@ const JoinUs = () => {
       {/* Focus Areas - Text Only Cards */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
             Our Focus Areas
           </h2>
-          <p className="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-16">
+          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center max-w-2xl mx-auto mb-16`}>
             We're building solutions that matter in four key sectors
           </p>
 
@@ -103,8 +105,8 @@ const JoinUs = () => {
                 onMouseEnter={() => setSelectedField(field.id)}
                 onMouseLeave={() => setSelectedField(null)}
               >
-                <h3 className="text-2xl font-bold text-white mb-3">{field.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-3`}>{field.title}</h3>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-sm leading-relaxed mb-4`}>
                   {field.description}
                 </p>
                 
@@ -127,12 +129,12 @@ const JoinUs = () => {
       </section>
 
       {/* How It Works - Clean Timeline */}
-      <section className="py-20 px-6 bg-white/5">
+      <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
             Your Journey
           </h2>
-          <p className="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-16">
+          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center max-w-2xl mx-auto mb-16`}>
             Four simple steps to start making an impact
           </p>
 
@@ -144,9 +146,9 @@ const JoinUs = () => {
               { step: "04", title: "Impact", desc: "Launch your solution or kickstart your career" }
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-white/20 mb-3">{item.step}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400">{item.desc}</p>
+                <div className={`text-4xl font-bold ${darkMode ? 'text-white/20' : 'text-[#0A1929]/15'} mb-3`}>{item.step}</div>
+                <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} mb-2`}>{item.title}</h3>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -156,18 +158,18 @@ const JoinUs = () => {
       {/* Benefits - Simple List */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
             Why Join?
           </h2>
-          <p className="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-16">
+          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center max-w-2xl mx-auto mb-16`}>
             What you'll gain as part of the Puffadders community
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-3">
-                <span className="text-white font-bold">—</span>
-                <span className="text-gray-300 text-sm">{benefit}</span>
+                <span className={`${darkMode ? 'text-white' : 'text-[#0A1929]'} font-bold`}>—</span>
+                <span className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-sm`}>{benefit}</span>
               </div>
             ))}
           </div>
@@ -175,37 +177,37 @@ const JoinUs = () => {
       </section>
 
       {/* Application Form - Clean */}
-      <section className="py-20 px-6 bg-white/5 border-t border-white/10">
+      <section className={`py-20 px-6 ${darkMode ? 'bg-white/5' : 'bg-gray-50'} border-t ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-[#0A1929]'} text-center mb-4`}>
             Apply to Join
           </h2>
-          <p className="text-lg text-gray-300 text-center mb-12">
+          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center mb-12`}>
             Ready to start your innovation journey? Fill out the form below.
           </p>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Full Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-600"
+                  className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white placeholder-gray-600' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                   placeholder="Your name"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Email Address</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-600"
+                  className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white placeholder-gray-600' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                   placeholder="you@university.ac.ke"
                   required
                 />
@@ -213,13 +215,13 @@ const JoinUs = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">University</label>
+              <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>University</label>
               <input
                 type="text"
                 name="university"
                 value={formData.university}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-600"
+                className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white placeholder-gray-600' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 placeholder="e.g., University of Nairobi"
                 required
               />
@@ -227,12 +229,12 @@ const JoinUs = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Area of Interest</label>
+                <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Area of Interest</label>
                 <select
                   name="field"
                   value={formData.field}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white"
+                  className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white' : 'bg-white border-gray-300 text-[#0A1929]'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                   required
                 >
                   <option value="">Select an area</option>
@@ -245,12 +247,12 @@ const JoinUs = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Experience Level</label>
+                <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Experience Level</label>
                 <select
                   name="experience"
                   value={formData.experience}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white"
+                  className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white' : 'bg-white border-gray-300 text-[#0A1929]'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                   required
                 >
                   <option value="">Select level</option>
@@ -262,13 +264,13 @@ const JoinUs = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Why do you want to join Puffadders?</label>
+              <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Why do you want to join Puffadders?</label>
               <textarea
                 name="motivation"
                 value={formData.motivation}
                 onChange={handleInputChange}
                 rows="4"
-                className="w-full px-4 py-3 bg-[#0A1929] border border-white/10 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-600 resize-none"
+                className={`w-full px-4 py-3 ${darkMode ? 'bg-[#0A1929] border-white/10 text-white placeholder-gray-600' : 'bg-white border-gray-300 text-[#0A1929] placeholder-gray-400'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none`}
                 placeholder="Tell us about your goals and what you hope to achieve..."
                 required
               ></textarea>
@@ -276,7 +278,7 @@ const JoinUs = () => {
 
             <button
               type="submit"
-              className="w-full bg-white text-[#0A1929] font-semibold text-lg py-4 rounded-lg hover:bg-gray-200 transition-all duration-300"
+              className={`w-full ${darkMode ? 'bg-white text-[#0A1929] hover:bg-gray-200' : 'bg-[#0A1929] text-white hover:bg-[#0d2240]'} font-semibold text-lg py-4 rounded-lg transition-all duration-300`}
             >
               Submit Application
             </button>
@@ -290,10 +292,10 @@ const JoinUs = () => {
 
       {/* Final CTA - Simple */}
       <section className="py-16 px-6 text-center">
-        <p className="text-gray-400 text-sm max-w-2xl mx-auto">
+        <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} text-sm max-w-2xl mx-auto`}>
           Already part of our community? Check out our latest hackathons and events on the blog.
         </p>
-        <Link to="/blog" className="inline-block mt-4 text-white hover:text-gray-300 transition-colors duration-300 border-b border-white/30 pb-1">
+        <Link to="/blog" className={`inline-block mt-4 ${darkMode ? 'text-white hover:text-gray-300 border-white/30' : 'text-[#0A1929] hover:text-gray-600 border-[#0A1929]/30'} transition-colors duration-300 border-b pb-1`}>
           View Upcoming Events →
         </Link>
       </section>
